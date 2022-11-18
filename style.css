@@ -1,0 +1,21 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    align-items: center;
+    display: flex;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profileBtn {
+    margin:.3em
+}
+
+.startBtn{
+
+}

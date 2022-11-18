@@ -5,21 +5,25 @@ const e = React.createElement;
 
 function App() {
     const [time, setTime] = React.useState(25*60 + 5) // 25m5s
+    const [paused, setPaused] = React.useState(true)
     
     React.useEffect(() => {
         const timer = setInterval(()=>{
-            if (time>0) setTime(time-1)
+            if (time>0 && !paused) setTime(time-1)
         },1000)
 
         return () => clearInterval(timer)
-    }, [time])
+    }, [time, paused])
+
+    const startTimer = () => {
+        setPaused(false)
+    }
 
     const button = e(
         'button',
-        {"onClick":()=>{
-            countDown()
-        }}, 'Start'
-        )
+        {"onClick":()=>{startTimer()}}, 
+        'Start'
+    )
 
     const display = e(
         'h1',

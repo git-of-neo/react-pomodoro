@@ -1,0 +1,18 @@
+:root {
+    --clr-text: rgba(0,0,0,1);
+}
+
+body {
+    color: var(--clr-text)
+}
+
+:root:has(#break:checked){
+    --clr-text: rgba(100,255,0, 0.3);
+}
+
+.hidden-radio {
+    display: none;
+}
+
+#break:checked ~ label
+

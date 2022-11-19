@@ -1,6 +1,8 @@
 // based template from https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605
 'use strict';
 
+// TODO : audio when done
+
 const e = React.createElement;
 const profiles = {
     "working" : 25*60,
@@ -34,7 +36,8 @@ function App() {
 
     const button = e(
         'button',
-        {"onClick":()=>{startTimer()}}, 
+        {"onClick":()=>{startTimer()
+        },"className":"startBtn"}, 
         paused?'Start':'Pause'
     )
 
@@ -44,9 +47,16 @@ function App() {
         `${Math.floor(time/60)}:${String(time%60).padStart(2,'0')}`
     )
 
-    const profileBar = e("div", null, 
-        e("button", {"class":"profileBtn", "onClick":()=>{changeProfile("working")}}, 'Pomodoro'),
-        e("button", {"class":"profileBtn", "onClick":()=>{changeProfile("break")}}, 'Break')
+    const profileBar = e("form", {"className":"profile-picker"}, 
+        e("fieldset", null, 
+            e("label", {"htmlFor":"working", "className":"profileBtn-left"}, 
+                e("input", {"id":"working","type":"radio", "name":"profile", "className":"visually-hidden", "onChange":()=>{changeProfile("working")}}, null),
+                e("div", null, 'Pomodoro'))
+            ,
+            e("label", {"htmlFor":"break", "className":"profileBtn-right"}, 
+                e("input", {"id":"break", "type":"radio", "className":"visually-hidden", "name":"profile", "onChange":()=>{changeProfile("break")}}, null),
+                e("div", null, 'break'))
+        )
     )
 
     return e('div', null, profileBar, display, button)

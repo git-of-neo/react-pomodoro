@@ -1,21 +1,110 @@
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Regular.ttf);
+}
+
+:root {
+    --clr-bg: rgba(255,99,71,1);
+    --clr-left-btn: rgba(255,255,255,0.6);
+    --clr-right-btn: rgba(255,255,255,0.3);
+}
+
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Roboto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 8rem;
 }
 
 body {
+    background-color: var(--clr-bg);
     align-items: center;
     display: flex;
 }
 
 .container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    translate: 0px -200px;
     margin: 0 auto;
     text-align: center;
 }
 
-.profileBtn {
-    margin:.3em
+.profile-picker > fieldset{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border:0;
+    margin-inline: auto;
+}
+
+.visually-hidden{
+    display: none;
+}
+
+.profileBtn-left {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-width: thin;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 5px 0 0 5px;
+    background-color: var(--clr-left-btn);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+.profileBtn-right {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-width: thin;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 0 5px 5px 0;
+    background-color: var(--clr-right-btn);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+:root:has(#working:checked){
+    --clr-bg: rgba(255,99,71,1);
+    --clr-left-btn: rgba(255,255,255,0.6);
+    --clr-right-btn: rgba(255,255,255,0.3);
+}
+
+:root:has(#break:checked){
+    --clr-bg: #90ee90;
+    --clr-left-btn: rgba(255,255,255,0.3);
+    --clr-right-btn: rgba(255,255,255,0.6);
 }
 
 .startBtn{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3rem;
+    width: 5rem;
+    font-weight: bold;
+    background-color: rgba(255,255,255, 0.3);
+    text-transform: uppercase;
+    border-radius:5px;
+    border-style: hidden;
+    box-shadow: 0px 8px 0px rgba(255,255,255, 0.3), 0px 6px 20px rgba(0,0,0, 0.2);
+    transition: all 0.2 ease;
+}
 
+.startBtn:active{
+    box-shadow: none;
+    top: 8px;
 }

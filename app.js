@@ -1,7 +1,8 @@
 // based template from https://gist.github.com/gaearon/6668a1f6986742109c00a581ce704605
 'use strict';
 
-// TODO : audio when done
+// TODO : audio 
+// TODO : timer seems to be slower
 
 const e = React.createElement;
 const profiles = {
